@@ -75,4 +75,8 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
         require(isPlayer(addr), "Player doesn't exist!");
         return players[playerInfo[addr]];
     }
+
+    function getAllPlayers() public view returns (Player[] memory) {
+        return players;
+    }
 }
