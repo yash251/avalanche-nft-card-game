@@ -58,4 +58,8 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
     mapping(address => uint256) public playerInfo; // mapping of player addresses to player index in the players array
     mapping(address => uint256) public playerTokenInfo; // mapping of player addresses to player token index in the gameTokens array
     mapping(string => uint256) public battleInfo; // mapping of battle names to battle index in the battles array
+
+    Player[] public players; // array of players
+    GameToken[] public gameTokens; // array of game tokens
+    Battle[] public battles; // array of battles
 }
