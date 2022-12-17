@@ -87,4 +87,13 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
             return true;
         }
     }
+
+    function getPlayerToken(address addr)
+        public
+        view
+        returns (GameToken memory)
+    {
+        require(isPlayerToken(addr), "Player token doesn't exist!");
+        return gameTokens[playerTokenInfo[addr]];
+    }
 }
