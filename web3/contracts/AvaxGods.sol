@@ -100,4 +100,13 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
     function getAllPlayerTokens() public view returns (GameToken[] memory) {
         return gameTokens;
     }
+
+    // Battle getter function
+    function isBattle(string memory _name) public view returns (bool) {
+        if (battleInfo[_name] == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
