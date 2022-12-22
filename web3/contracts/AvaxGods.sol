@@ -129,4 +129,25 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
         require(isBattle(_name), "Battle doesn't exist");
         battles[battleInfo[_name]] = _newBattle;
     }
+
+    // events
+    event NewPlayer(address indexed owner, string name);
+    event NewBattle(
+        string battleName,
+        address indexed player1,
+        address indexed player2
+    );
+    event BattleEnded(
+        string battleName,
+        address indexed winner,
+        address indexed loser
+    );
+    event BattleMove(string indexed battleName, bool indexed isFirstMove);
+    event NewGameToken(
+        address indexed owner,
+        uint256 id,
+        uint256 attackStrength,
+        uint256 defenseStrength
+    );
+    event RoundEnded(address[2] damagedPlayers);
 }
