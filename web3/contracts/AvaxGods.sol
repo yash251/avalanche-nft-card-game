@@ -165,4 +165,11 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
             )
         );
     }
+
+    /// @dev Initializes the contract by setting a `metadataURI` to the token collection
+    /// @param _metadataURI baseURI where token metadata is stored
+    constructor(string memory _metadataURI) ERC1155(_metadataURI) {
+        baseURI = _metadataURI;
+        initialize();
+    }
 }
