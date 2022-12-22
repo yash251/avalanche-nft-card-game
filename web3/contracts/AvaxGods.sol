@@ -172,4 +172,8 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
         baseURI = _metadataURI;
         initialize();
     }
+
+    function setURI(string memory newuri) public onlyOwner {
+        _setURI(newuri);
+    }
 }
