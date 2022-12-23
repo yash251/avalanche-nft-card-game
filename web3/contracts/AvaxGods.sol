@@ -176,4 +176,17 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
     function setURI(string memory newuri) public onlyOwner {
         _setURI(newuri);
     }
+
+    /// @dev Registers a player
+    /// @param _name player name; set by player
+    function registerPlayer(string memory _name, string memory _gameTokenName)
+        external
+    {
+        require(!isPlayer(msg.sender), "Player already registered");
+        uint256 _id = players.length;
+        players.push(Player(msg.sender, _name, 10, 25, false));
+        playerInfo[msg.sender] = _id;
+        createRandomGameToken(_gameTokenName);
+        emit NewPlayer(msg.sender, _name);
+    }
 }
