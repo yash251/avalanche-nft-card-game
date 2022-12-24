@@ -189,4 +189,24 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
         createRandomGameToken(_gameTokenName);
         emit NewPlayer(msg.sender, _name);
     }
+
+    /// @dev internal function to generate random number; used for Battle Card Attack and Defense Strength
+    function _createRandomNum(uint256 _max, address _sender)
+        internal
+        view
+        returns (uint256 randomValue)
+    {
+        uint256 randomNum = uint256(
+            keccak256(
+                abi.encodePacked(block.difficulty, block.timestamp, _sender)
+            )
+        );
+
+        randomValue = randomNum % _max;
+        if (randomValue == 0) {
+            randomValue = _max / 2;
+        }
+
+        return randomValue;
+    }
 }
