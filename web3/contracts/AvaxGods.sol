@@ -262,4 +262,8 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
 
         _createGameToken(_name);
     }
+
+    function getTotalSupply() external view returns (uint256) {
+        return totalSupply;
+    }
 }
