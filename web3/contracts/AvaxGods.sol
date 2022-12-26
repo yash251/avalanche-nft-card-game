@@ -253,4 +253,13 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
         );
         return newGameToken;
     }
+
+    /// @dev Creates a new game token
+    /// @param _name game token name; set by player
+    function createRandomGameToken(string memory _name) public {
+        require(!getPlayer(msg.sender).inBattle, "Player is in a battle");
+        require(isPlayer(msg.sender), "Please register player first");
+
+        _createGameToken(_name);
+    }
 }
