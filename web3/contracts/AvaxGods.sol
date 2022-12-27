@@ -391,4 +391,30 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
             _awaitBattleResults(_battleName);
         }
     }
+
+    // Awaits battle results
+    function _awaitBattleResults(string memory _battleName) internal {
+        Battle memory _battle = getBattle(_battleName);
+
+        require(
+            msg.sender == _battle.players[0] ||
+                msg.sender == _battle.players[1],
+            "Only players in this battle can make a move"
+        );
+
+        require(
+            _battle.moves[0] != 0 && _battle.moves[1] != 0,
+            "Players still need to make a move"
+        );
+
+        _resolveBattle(_battle);
+    }
+
+    struct P {
+        uint256 index;
+        uint256 move;
+        uint256 health;
+        uint256 attack;
+        uint256 defense;
+    }
 }
