@@ -542,4 +542,40 @@ contract AVAXGods is ERC1155, Ownable, ERC1155Supply {
             ? _endBattle(_battle.players[1], _battle)
             : _endBattle(_battle.players[0], _battle);
     }
+
+    /// @dev internal function to end the battle
+    /// @param battleEnder winner address
+    /// @param _battle battle; taken from attackOrDefend function
+    function _endBattle(address battleEnder, Battle memory _battle)
+        internal
+        returns (Battle memory)
+    {
+        require(
+            _battle.battleStatus != BattleStatus.ENDED,
+            "Battle already ended"
+        ); // Require that battle has not ended
+
+        _battle.battleStatus = BattleStatus.ENDED;
+        _battle.winner = battleEnder;
+        updateBattle(_battle.name, _battle);
+
+        uint256 p1 = playerInfo[_battle.players[0]];
+        uint256 p2 = playerInfo[_battle.players[1]];
+
+        players[p1].inBattle = false;
+        players[p1].playerHealth = 25;
+        players[p1].playerMana = 10;
+
+        players[p2].inBattle = false;
+        players[p2].playerHealth = 25;
+        players[p2].playerMana = 10;
+
+        address _battleLoser = battleEnder == _battle.players[0]
+            ? _battle.players[1]
+            : _battle.players[0];
+
+        emit BattleEnded(_battle.name, battleEnder, _battleLoser); // Emits BattleEnded event
+
+        return _battle;
+    }
 }
