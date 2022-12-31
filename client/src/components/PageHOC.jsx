@@ -18,6 +18,11 @@ const PageHOC = (Component, title, description) => () => {
           <p className={`${styles.normalText} my-10`}>{description}</p>
           <Component />
         </div>
+
+        <p className={`${styles.footerText} my-10`}>Made with ❤️ by <a href="https://twitter.com/0x_yasshhh_" target="_blank" className="underline">Yash</a></p>
+      </div>
+      <div className='flex flex-1'>
+        <img src={heroImg} alt="hero-img" className='w-full xl:h-full object-cover' />
       </div>
     </div>
   );
