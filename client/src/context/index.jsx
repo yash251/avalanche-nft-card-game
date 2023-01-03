@@ -10,7 +10,7 @@ export const GlobalContextProvider = ({ children }) => {
         <GlobalContext.Provider value={{
             demo: 'test'
         }}>
-
+            {children}
         </GlobalContext.Provider>
     )
 }
