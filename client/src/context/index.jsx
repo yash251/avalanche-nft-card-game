@@ -8,7 +8,7 @@ const GlobalContext = createContext();
 export const GlobalContextProvider = ({ children }) => { 
     return (
         <GlobalContext.Provider value={{
-            demo: 'test'
+            
         }}>
             {children}
         </GlobalContext.Provider>
