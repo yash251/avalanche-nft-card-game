@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 
 const GlobalContext = createContext();
 
-export const GlobalContextProvider = ({ children }) => { 
+export const GlobalContextProvider = ({ children }) => {
+    const [walletAddress, setWalletAddress] = useState('');
+
     return (
         <GlobalContext.Provider value={{
             
