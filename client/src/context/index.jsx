@@ -3,6 +3,8 @@ import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 import { useNavigate } from 'react-router-dom';
 
+import { ABI, ADDRESS } from '../contract';
+
 const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
