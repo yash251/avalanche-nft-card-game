@@ -9,7 +9,9 @@ const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
     const [walletAddress, setWalletAddress] = useState('');
-
+    const [provider, setProvider] = useState('');
+    const [contract, setContract] = useState('');
+    
     const updateCurrentWalletAddress = async () => {
         const accounts = await window.ethereum.request({
             method: 'eth_requestAccounts'
