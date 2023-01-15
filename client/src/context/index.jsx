@@ -11,7 +11,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [walletAddress, setWalletAddress] = useState('');
     const [provider, setProvider] = useState('');
     const [contract, setContract] = useState('');
-    
+
     const updateCurrentWalletAddress = async () => {
         const accounts = await window.ethereum.request({
             method: 'eth_requestAccounts'
@@ -29,6 +29,8 @@ export const GlobalContextProvider = ({ children }) => {
             const newProvider = new ethers.providers.Web3Provider(connection);
             const signer = newProvider.signer();
             const newContract = new ethers.Contract(ADDRESS, ABI, signer);
+
+            setProvider(newProvider);
         }
         setSmartContractAndProvider();
     }, []);
