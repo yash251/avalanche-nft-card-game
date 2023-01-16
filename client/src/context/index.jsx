@@ -31,6 +31,7 @@ export const GlobalContextProvider = ({ children }) => {
             const newContract = new ethers.Contract(ADDRESS, ABI, signer);
 
             setProvider(newProvider);
+            setContract(newContract);
         }
         setSmartContractAndProvider();
     }, []);
