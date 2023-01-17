@@ -15,7 +15,9 @@ export const GlobalContextProvider = ({ children }) => {
     const updateCurrentWalletAddress = async () => {
         const accounts = await window.ethereum.request({
             method: 'eth_requestAccounts'
-        })
+        });
+
+        if(accounts) setWalletAddress(accounts[0]);
     }
 
     useEffect(() => {
