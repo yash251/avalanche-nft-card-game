@@ -45,7 +45,7 @@ export const GlobalContextProvider = ({ children }) => {
 
     return (
         <GlobalContext.Provider value={{
-            
+            contract, walletAddress
         }}>
             {children}
         </GlobalContext.Provider>
