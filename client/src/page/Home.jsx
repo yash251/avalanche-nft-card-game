@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PageHOC, CustomInput } from '../components';
+import { PageHOC, CustomInput, CustomButton } from '../components';
 import { useGlobalContext } from '../context';
 
 const Home = () => {
@@ -18,7 +18,7 @@ const Home = () => {
       <CustomButton
         title="Register"
         handleClick={() => { }}
-        restType="mt-6"
+        restStyles="mt-6"
       />
     </div>
   )
