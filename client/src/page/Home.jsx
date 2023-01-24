@@ -14,6 +14,12 @@ const Home = () => {
         value={playerName}
         handleValueChange={setPlayerName}
       />
+
+      <CustomButton
+        title="Register"
+        handleClick={() => { }}
+        restType="mt-6"
+      />
     </div>
   )
 };
