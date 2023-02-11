@@ -14,6 +14,8 @@ export const GlobalContextProvider = ({ children }) => {
     const [contract, setContract] = useState('');
     const [showAlert, setShowAlert] = useState({ status: false, type: 'info', message: '' });
 
+    const navigate = useNavigate();
+
     // set the wallet address to the state
     const updateCurrentWalletAddress = async () => {
         const accounts = await window.ethereum.request({
@@ -51,7 +53,7 @@ export const GlobalContextProvider = ({ children }) => {
                 navigate, contract, provider, walletAddress, setShowAlert,
             })
         }
-    }, []);
+    }, [contract]);
 
     useEffect(() => {
         if(showAlert?.status) {
