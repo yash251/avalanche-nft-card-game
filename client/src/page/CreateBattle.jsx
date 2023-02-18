@@ -6,10 +6,21 @@ import { useGlobalContext } from '../context';
 import { CustomButton, CustomInput, PageHOC } from '../components';
 
 const CreateBattle = () => {
+  const navigate = useNavigate();
   return (
-    <div>
-      
-    </div>
+    <>
+      <div className='flex flex-col mb-5'>
+        <CustomInput
+          label='Battle'
+          placeholder='Enter your battle name'
+          
+        />
+
+        <CustomButton
+        
+        />
+      </div>
+    </>
   )
 };
 
