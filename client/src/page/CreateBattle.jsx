@@ -6,6 +6,7 @@ import { useGlobalContext } from '../context';
 import { CustomButton, CustomInput, PageHOC } from '../components';
 
 const CreateBattle = () => {
+  const { contract, battleName, setBattleName } = useGlobalContext();
   const navigate = useNavigate();
   return (
     <>
@@ -13,7 +14,8 @@ const CreateBattle = () => {
         <CustomInput
           label='Battle'
           placeholder='Enter your battle name'
-          
+          value={battleName}
+          handleValueChange={setBattleName}
         />
 
         <CustomButton
