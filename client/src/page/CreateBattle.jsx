@@ -8,6 +8,11 @@ import { CustomButton, CustomInput, PageHOC } from '../components';
 const CreateBattle = () => {
   const { contract, battleName, setBattleName } = useGlobalContext();
   const navigate = useNavigate();
+
+  const handleClick = () => {
+
+  }
+
   return (
     <>
       <div className='flex flex-col mb-5'>
@@ -21,8 +26,16 @@ const CreateBattle = () => {
         <CustomButton
           title='Create Battle'
           handleClick={handleClick}
+          restStyles='mt-6'
         />
       </div>
+
+      <p
+        className='styles.infoText'
+        onClick={() => navigate('/join-battle')}
+      >
+        Or join already existing battles
+      </p>
     </>
   )
 };
