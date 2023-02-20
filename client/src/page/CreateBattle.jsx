@@ -19,7 +19,8 @@ const CreateBattle = () => {
         />
 
         <CustomButton
-        
+          title='Create Battle'
+          handleClick={handleClick}
         />
       </div>
     </>
