@@ -9,8 +9,14 @@ const CreateBattle = () => {
   const { contract, battleName, setBattleName } = useGlobalContext();
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleClick = async () => {
+    if (!battleName || !battleName.trim()) return null;
 
+    try {
+      await contract.createBattle(battleName);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
