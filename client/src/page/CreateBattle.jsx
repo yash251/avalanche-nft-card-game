@@ -7,6 +7,7 @@ import { CustomButton, CustomInput, PageHOC } from '../components';
 
 const CreateBattle = () => {
   const { contract, battleName, setBattleName } = useGlobalContext();
+  const [waitBattle, setWaitBattle] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = async () => {
@@ -14,7 +15,9 @@ const CreateBattle = () => {
 
     try {
       await contract.createBattle(battleName);
-    } catch (error) {
+      setWaitBattle(true);
+    }
+    catch (error) {
       console.log(error);
     }
   }
