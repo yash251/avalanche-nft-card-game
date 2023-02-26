@@ -7,7 +7,7 @@ import { CustomButton, CustomInput, GameLoad, PageHOC } from '../components';
 
 const CreateBattle = () => {
   const { contract, battleName, setBattleName } = useGlobalContext();
-  const [waitBattle, setWaitBattle] = useState(true);
+  const [waitBattle, setWaitBattle] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = async () => {
