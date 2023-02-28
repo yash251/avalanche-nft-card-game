@@ -6,6 +6,7 @@ import { CustomButton, PageHOC } from "../components";
 import styles from "../styles";
 
 const JoinBattle = () => {
+    const { contract, gameData, setShowAlert, setBattleName, walletAddress } = useGlobalContext();
     const navigate = useNavigate();
 
     return (
