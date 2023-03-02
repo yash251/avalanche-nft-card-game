@@ -11,6 +11,11 @@ const JoinBattle = () => {
     return (
         <>
             <h2 className={styles.joinHeadText}>Available Battles :</h2>
+
+            <div>
+                
+            </div>
+
             <p
                 className={styles.infoText}
                 onClick={() => navigate("/create-battle")}
