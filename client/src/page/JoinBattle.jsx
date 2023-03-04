@@ -8,6 +8,19 @@ const JoinBattle = () => {
     const { contract, gameData, setShowAlert, setBattleName, walletAddress } = useGlobalContext();
     const navigate = useNavigate();
 
+    const handleClick = async () => {
+        setBattleName(battleName);
+
+        try {
+            await contract.joinBattle(battleName);
+
+            setShowAlert({ status: true, type: 'success', message: `Joining ${battleName}`});
+        }
+        catch (error) {
+            console.log(error);
+        }     
+    }
+
     return (
         <>
             <h2 className={styles.joinHeadText}>Available Battles :</h2>
@@ -19,7 +32,11 @@ const JoinBattle = () => {
                             (walletAddress))
                         .map((battle, index) => (
                             <div key={battle.name + index} className={styles.flexBetween}>
-                                <p className={styles.joinBattleTitle}>{ index + 1 }</p>
+                                <p className={styles.joinBattleTitle}>{index + 1}. {battle.name} </p>
+                                <CustomButton
+                                    title="Join"
+                                    handleClick={() => handleClick(battle.name)}
+                                />
                             </div>
                         ))
                     : <p className={styles.joinLoading}>
@@ -36,6 +53,7 @@ const JoinBattle = () => {
             </p>
         </>
     );
+
 };
 
 export default PageHOC(
