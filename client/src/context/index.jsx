@@ -19,6 +19,7 @@ export const GlobalContextProvider = ({ children }) => {
         pendingBattles: [],
         activeBattle: null,
     })
+    const [updateGameData, setUpdateGameData] = useState(0);
     
     const navigate = useNavigate();
 
@@ -56,7 +57,7 @@ export const GlobalContextProvider = ({ children }) => {
     useEffect(() => { 
         if (contract) {
             createEventListeners({
-                navigate, contract, provider, walletAddress, setShowAlert,
+                navigate, contract, provider, walletAddress, setShowAlert, setUpdateGameData
             })
         }
     }, [contract]);
@@ -93,7 +94,7 @@ export const GlobalContextProvider = ({ children }) => {
         }
 
         if (contract) fetchGameData();
-    }, [contract])
+    }, [contract, updateGameData])
     
     return (
         <GlobalContext.Provider value={{
