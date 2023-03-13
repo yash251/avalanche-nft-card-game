@@ -15,7 +15,11 @@ const Battle = () => {
 
     const navigate = useNavigate();
 
-  return <div>Battle</div>;
+    return (
+        <div className={`${styles.flexBetween} ${styles.gameContainer} astral`}>
+            <h1 className="text-xl">{battleName}</h1>
+        </div>
+    );
 };
 
 export default Battle;
