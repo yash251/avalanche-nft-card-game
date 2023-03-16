@@ -15,6 +15,32 @@ const Battle = () => {
 
     const navigate = useNavigate();
 
+    useEffect(() => {
+        const getPlayerInfo = async () => {
+            try {
+                let player01Address = null;
+                let player02Address = null;
+
+                if (gameData.activeBattle.players[0].toLowerCase() === walletAddress.toLowerCase()) {
+                    player01Address = gameData.activeBattle.players[0];
+                    player02Address = gameData.activeBattle.players[1];
+                }
+                else {
+                    player01Address = gameData.activeBattle.players[1];
+                    player02Address = gameData.activeBattle.players[0];
+                }
+            }
+            catch (error) {
+                
+            }
+        }
+    
+        if (contract && gameData.activeBattle) {
+            getPlayerInfo();
+        }
+    }, [contract, gameData, battleName]);
+    
+
     return (
         <div className={`${styles.flexBetween} ${styles.gameContainer} ${battleGround}`}>
             <h1 className="text-xl">{battleName}</h1>
