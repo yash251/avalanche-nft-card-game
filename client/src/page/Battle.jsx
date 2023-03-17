@@ -29,6 +29,10 @@ const Battle = () => {
                     player01Address = gameData.activeBattle.players[1];
                     player02Address = gameData.activeBattle.players[0];
                 }
+
+                const p1TokenData = await contract.getPlayerToken(player01Address);
+                const player01 = await contract.getPlayer(player01Address);
+                const player02 = await contract.getPlayer(player02Address);
             }
             catch (error) {
                 
