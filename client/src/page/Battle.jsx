@@ -58,6 +58,7 @@ const Battle = () => {
 
     return (
         <div className={`${styles.flexBetween} ${styles.gameContainer} ${battleGround}`}>
+            {showAlert?.status && <Alert type={showAlert.type} message={showAlert.message} />}
             <h1 className="text-xl">{battleName}</h1>
         </div>
     );
