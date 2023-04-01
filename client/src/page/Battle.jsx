@@ -61,6 +61,15 @@ const Battle = () => {
             {showAlert?.status && <Alert type={showAlert.type} message={showAlert.message} />}
             
             <PlayerInfo player={player2} playerIcon={player02Icon} mt />
+
+            <div className={`${styles.flexCenter} flex-col my-10`}>
+                <Card
+                    card={player2}
+                    title={player2?.playerName}
+                    cardRef=''
+                    playerTwo
+                />
+            </div>
         </div>
     );
 };
