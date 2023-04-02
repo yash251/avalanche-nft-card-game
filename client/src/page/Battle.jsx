@@ -69,6 +69,10 @@ const Battle = () => {
                     cardRef=''
                     playerTwo
                 />
+
+                <div className='flex items-center flex-row'>
+                    <ActionButton />
+                </div>
             </div>
         </div>
     );
