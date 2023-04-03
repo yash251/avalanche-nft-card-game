@@ -71,7 +71,18 @@ const Battle = () => {
                 />
 
                 <div className='flex items-center flex-row'>
-                    <ActionButton />
+                    <ActionButton
+                        imgUrl={attack}
+                        handleClick={() => { }}
+                        restStyles='mr-2 hover:border-yellow-400'
+                    />
+
+                    <Card
+                        card={player1}
+                        title={player1?.playerName}
+                        cardRef=''
+                        restStyles='mt-3'
+                    />
                 </div>
             </div>
         </div>
