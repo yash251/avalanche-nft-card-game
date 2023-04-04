@@ -83,8 +83,16 @@ const Battle = () => {
                         cardRef=''
                         restStyles='mt-3'
                     />
+
+                    <ActionButton
+                        imgUrl={defense}
+                        handleClick={() => { }}
+                        restStyles='ml-6 hover:border-red-600'
+                    />
                 </div>
             </div>
+
+            <PlayerInfo player={player1} playerIcon={player01Icon} mt />
         </div>
     );
 };
