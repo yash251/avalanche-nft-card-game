@@ -93,6 +93,8 @@ const Battle = () => {
             </div>
 
             <PlayerInfo player={player1} playerIcon={player01Icon} mt />
+
+            <GameInfo />
         </div>
     );
 };
