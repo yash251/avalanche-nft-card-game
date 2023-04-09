@@ -3,6 +3,8 @@ import styles from "../styles";
 
 const healthPoints = 25;
 
+const healthLevel = (points) => (points >= 12 ? 'bg-green-500' : points >=6 ? 'bg-orange-500' : 'bg-red-500')
+
 const PlayerInfo = ({ player, playerIcon, mt }) => {
   return (
     <div className={`${styles.flexCenter} ${mt ? 'mt-4' : 'mb-4'}`}>
@@ -12,7 +14,12 @@ const PlayerInfo = ({ player, playerIcon, mt }) => {
         data-for={`Health-${mt ? '1' : '2'}`}
         data-tip={`Health: ${player?.health}`}
       >
-        
+        {[...Array(player.health).keys()].map((item, index) => (
+          <div>
+            key={`player-item-${item}`}
+            className={`${styles.playerHealthBar} ${healthLevel(player.health)}`}
+          </div>
+        ))}
       </div>
     </div>
   )
