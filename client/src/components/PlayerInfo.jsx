@@ -23,6 +23,14 @@ const PlayerInfo = ({ player, playerIcon, mt }) => {
           </div>
         ))}
       </div>
+
+      <div
+        data-for={`Mana-${mt ? '1' : '2'}`}
+        data-tip="Mana"
+        className={`${styles.flexCenter} ${styles.glassEffect} ${styles.playerMana}`}
+      >
+        {player.mana || 0}
+      </div>
     </div>
   )
 };
