@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 import CustomButton from "./CustomButton";
 import { useGlobalContext } from "../context";
-import { AlertIcon, alertIcon, gameRules } from "../assets";
+import { alertIcon, gameRules } from "../assets";
 import styles from "../styles";
 
 const GameInfo = () => {
@@ -25,6 +25,19 @@ const GameInfo = () => {
             alt="info"
             className={styles.gameInfoIconImg}
           />
+        </div>
+      </div>
+
+      <div className={`${styles.gameInfoSidebar} ${toggleSidebar ? 'translate-x-0' : 'translate-x-full'} ${styles.glassEffect} ${styles.flexBetween} backdrop-blur-3xl`}>
+        <div className="flex flex-col">
+          <div className={styles.gameInfoSidebarCloseBox}>
+            <div
+              className={`${styles.flexCenter} ${styles.gameInfoSidebarClose}`}
+              onClick={() => setToggleSidebar(false)}
+            >
+              X
+            </div>
+          </div>
         </div>
       </div>
     </>
