@@ -7,7 +7,14 @@ import { battlegrounds } from "../assets";
 import { useGlobalContext } from "../context";
 
 const Battleground = () => {
-  return <div>Battleground</div>;
+    const { setBattleGround, setShowAlert, showAlert } = useGlobalContext();
+    const navigate = useNavigate();
+
+    return (
+        <div>
+
+        </div>
+    );
 };
 
 export default Battleground;
