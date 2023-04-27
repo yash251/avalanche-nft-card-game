@@ -11,8 +11,26 @@ const Battleground = () => {
     const navigate = useNavigate();
 
     return (
-        <div>
+        <div className={`${styles.flexCenter} ${styles.battlegroundContainer}`}>
+            {showAlert?.status && <Alert type={showAlert.type} message={showAlert.message} />}
 
+            <h1 className={`${styles.headText} text-center`}>
+                Choose your
+                <span className="text-siteViolet"> Battle </span>
+                Ground
+            </h1>
+
+            <div className={`${styles.flexCenter} ${styles.battleGroundsWrapper}`}>
+                {battlegrounds.map((ground) => (
+                    <div
+                        key={ground.id}
+                        className={`${styles.flexCenter} ${styles.battleGroundCard}`}
+                        onClick={() => handleBattleGroundChoice(ground)}
+                    >
+
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
