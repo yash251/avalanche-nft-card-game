@@ -10,6 +10,10 @@ const Battleground = () => {
     const { setBattleGround, setShowAlert, showAlert } = useGlobalContext();
     const navigate = useNavigate();
 
+    const handleBattleGroundChoice = (ground) => { 
+
+    }
+
     return (
         <div className={`${styles.flexCenter} ${styles.battlegroundContainer}`}>
             {showAlert?.status && <Alert type={showAlert.type} message={showAlert.message} />}
@@ -27,7 +31,11 @@ const Battleground = () => {
                         className={`${styles.flexCenter} ${styles.battleGroundCard}`}
                         onClick={() => handleBattleGroundChoice(ground)}
                     >
+                        <img src={ground.image} alt="ground" className={styles.battleGroundCardImg} />
 
+                        <div className="info absolute">
+                            <p className={styles.battleGroundCardText}>{ground.name}</p>
+                        </div>
                     </div>
                 ))}
             </div>
