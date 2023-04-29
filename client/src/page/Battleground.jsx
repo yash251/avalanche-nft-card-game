@@ -11,7 +11,15 @@ const Battleground = () => {
     const navigate = useNavigate();
 
     const handleBattleGroundChoice = (ground) => { 
+        setBattleGround(ground.id);
 
+        localStorage.setItem('battleground', ground.id);
+
+        setShowAlert({ status: true, type: 'info', message: `${ground.name} is battle ready!` });
+
+        setTimeout(() => {
+            navigate(-1);
+        }, 1000);
     }
 
     return (
