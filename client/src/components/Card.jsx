@@ -23,7 +23,7 @@ const Card = ({ card, title, restStyles, cardRef, playerTwo }) => {
 
         <div className={`${styles.cardPointContainer} sm:right-[14.2%] right-[15%] ${styles.flexCenter}`}>
           <p className={`${styles.cardPoint} text-red-700`}>
-            {card.att}
+            {card.def}
           </p>
         </div>
 
