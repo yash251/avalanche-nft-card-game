@@ -73,7 +73,7 @@ const Battle = () => {
                 <div className='flex items-center flex-row'>
                     <ActionButton
                         imgUrl={attack}
-                        handleClick={() => { }}
+                        handleClick={() => makeAMove(1)}
                         restStyles='mr-2 hover:border-yellow-400'
                     />
 
@@ -86,7 +86,7 @@ const Battle = () => {
 
                     <ActionButton
                         imgUrl={defense}
-                        handleClick={() => { }}
+                        handleClick={() => makeAMove(1)}
                         restStyles='ml-6 hover:border-red-600'
                     />
                 </div>
