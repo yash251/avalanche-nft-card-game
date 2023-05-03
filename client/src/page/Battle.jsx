@@ -55,6 +55,9 @@ const Battle = () => {
         }
     }, [contract, gameData, battleName]);
     
+    const makeAMove = async (choice) => {
+        playAudio(choice === 1 ? attackSound : defenseSound);
+    }
 
     return (
         <div className={`${styles.flexBetween} ${styles.gameContainer} ${battleGround}`}>
@@ -86,7 +89,7 @@ const Battle = () => {
 
                     <ActionButton
                         imgUrl={defense}
-                        handleClick={() => makeAMove(1)}
+                        handleClick={() => makeAMove(2)}
                         restStyles='ml-6 hover:border-red-600'
                     />
                 </div>
