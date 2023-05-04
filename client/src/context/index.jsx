@@ -23,6 +23,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [updateGameData, setUpdateGameData] = useState(0);
     const [battleGround, setBattleGround] = useState('bg-astral');
     const [step, setStep] = useState(1);
+    const [errorMessage, setErrorMessage] = useState('');
     
     
     const navigate = useNavigate();
@@ -101,6 +102,22 @@ export const GlobalContextProvider = ({ children }) => {
         }
     }, [showAlert]);
 
+    // handle error messages
+    useEffect(() => {
+        if (errorMessage) {
+            const parsedErrorMessage = errorMessage?.reason?.slice('execution reverted: '.length).slice(0, -1);
+
+            if (parsedErrorMessage) {
+                setShowAlert({
+                    status: true,
+                    type: 'failure',
+                    message: parsedErrorMessage
+                });
+            }
+        }
+    }, [errorMessage]);
+    
+
     // set the game data to the state
     useEffect(() => {
         const fetchGameData = async () => { 
@@ -127,7 +144,7 @@ export const GlobalContextProvider = ({ children }) => {
     
     return (
         <GlobalContext.Provider value={{
-            contract, walletAddress, showAlert, setShowAlert, battleName, setBattleName, gameData, battleGround, setBattleGround,
+            contract, walletAddress, showAlert, setShowAlert, battleName, setBattleName, gameData, battleGround, setBattleGround, errorMessage, setErrorMessage,
         }}>
             {children}
         </GlobalContext.Provider>

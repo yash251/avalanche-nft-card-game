@@ -8,7 +8,7 @@ import { attack, attackSound, defense, defenseSound, player01 as player01Icon, p
 import { playAudio } from '../utils/animation.js';
 
 const Battle = () => {
-    const { contract, gameData, walletAddress, showAlert, setShowAlert, battleGround } = useGlobalContext();
+    const { contract, gameData, walletAddress, showAlert, setShowAlert, battleGround, setErrorMessage } = useGlobalContext();
     const [player1, setPlayer1] = useState({});
     const [player2, setPlayer2] = useState({});
     const { battleName } = useParams();
@@ -67,7 +67,7 @@ const Battle = () => {
                 message: `Initiating ${choice === 1 ? 'attack' : 'defense'}`
             });
         } catch (error) {
-            console.log(error);
+            setErrorMessage(error);
         }
     }
 
