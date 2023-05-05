@@ -46,7 +46,7 @@ const Battle = () => {
                 setPlayer2({ ...player02, att: "X", def: "X", health: p2H, mana: p2M });
             }
             catch (error) {
-                console.log(error);
+                setErrorMessage(error);
             }
         }
     
