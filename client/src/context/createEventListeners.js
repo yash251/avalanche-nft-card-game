@@ -44,4 +44,10 @@ export const createEventListeners = ({ navigate, contract, provider, walletAddre
         console.log('Battle move initiated', args);
     });
 
+    const RoundEndedEventFilter = contract.filters.RoundEnded();
+
+    AddNewEvent(RoundEndedEventFilter, provider, ({ args }) => {
+        console.log('Round ended!', args, walletAddress);
+    });
+
 }
