@@ -1,5 +1,9 @@
 import { ethers } from "ethers";
 import { ABI } from "../contract";
+import { playAudio, sparcle } from "../utils/animation";
+import { defenseSound } from "../assets";
+
+const emptyAccount = '0x0000000000000000000000000000000000000000';
 
 const AddNewEvent = (eventFilter, provider, cb) => {
     provider.removeListener(eventFilter);
@@ -48,6 +52,20 @@ export const createEventListeners = ({ navigate, contract, provider, walletAddre
 
     AddNewEvent(RoundEndedEventFilter, provider, ({ args }) => {
         console.log('Round ended!', args, walletAddress);
+
+        for (let i = 0; i < args.damagedPlayers.length; i += 1) {
+            if (args.damagedPlayers[i] !== emptyAccount) {
+                if (args.damagedPlayers[i] === walletAddress) {
+                    sparcle();
+                }
+                else if (args.damagedPlayers[i] !== walletAddress) {
+                    sparcle();
+                }
+            }
+            else {
+                playAudio(defenseSound);
+            }   
+        }
     });
 
 }
