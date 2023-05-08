@@ -25,6 +25,8 @@ export const GlobalContextProvider = ({ children }) => {
     const [step, setStep] = useState(1);
     const [errorMessage, setErrorMessage] = useState('');
     
+    const player1Ref = useRef();
+    const player2Ref = useRef();
     
     const navigate = useNavigate();
 
@@ -144,7 +146,7 @@ export const GlobalContextProvider = ({ children }) => {
     
     return (
         <GlobalContext.Provider value={{
-            contract, walletAddress, showAlert, setShowAlert, battleName, setBattleName, gameData, battleGround, setBattleGround, errorMessage, setErrorMessage,
+            contract, walletAddress, showAlert, setShowAlert, battleName, setBattleName, gameData, battleGround, setBattleGround, errorMessage, setErrorMessage, player1Ref, player2Ref
         }}>
             {children}
         </GlobalContext.Provider>
