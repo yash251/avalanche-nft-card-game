@@ -89,7 +89,7 @@ export const GlobalContextProvider = ({ children }) => {
     useEffect(() => { 
         if (step !== -1 && contract) {
             createEventListeners({
-                navigate, contract, provider, walletAddress, setShowAlert, setUpdateGameData
+                navigate, contract, provider, walletAddress, setShowAlert, setUpdateGameData, player1Ref, player2Ref
             })
         }
     }, [contract, step]);
