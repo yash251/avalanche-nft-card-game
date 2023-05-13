@@ -15,6 +15,15 @@ const AddNewEvent = (eventFilter, provider, cb) => {
     })
 };
 
+const getCoords = (cardRef) => {
+    const { left, top, width, height } = cardRef.current.getBoundingClientRect();
+
+    return {
+        pageX: left + width / 2,
+        pageY: top + height / 2.25,
+    }
+}
+
 export const createEventListeners = ({ navigate, contract, provider, walletAddress, setShowAlert, setUpdateGameData, player1Ref, player2Ref }) => {
     const NewPlayerEventFilter = contract.filters.NewPlayer();
 
@@ -56,10 +65,10 @@ export const createEventListeners = ({ navigate, contract, provider, walletAddre
         for (let i = 0; i < args.damagedPlayers.length; i += 1) {
             if (args.damagedPlayers[i] !== emptyAccount) {
                 if (args.damagedPlayers[i] === walletAddress) {
-                    sparcle();
+                    sparcle(getCoords(player1Ref));
                 }
                 else if (args.damagedPlayers[i] !== walletAddress) {
-                    sparcle();
+                    sparcle(getCoords(player2Ref));
                 }
             }
             else {
