@@ -8,6 +8,13 @@ const JoinBattle = () => {
     const { contract, gameData, setShowAlert, setBattleName, walletAddress, setErrorMessage } = useGlobalContext();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (gameData?.activeBattle?.battleStatus === 1) {
+            navigate(`/battle/${gameData.activeBattle.name}`)
+        }
+    }, [gameData]);
+    
+
     const handleClick = async () => {
         setBattleName(battleName);
 
