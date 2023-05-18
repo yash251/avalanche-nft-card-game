@@ -11,7 +11,7 @@ const GameInfo = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const navigate = useNavigate();
 
-  const handleBattleExit = async => { 
+  const handleBattleExit = async async => { 
     const battleName = gameData.activeBattle.name;
 
     try {
